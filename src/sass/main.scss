@@ -1,7 +1,11 @@
 @import 'reset';
+@import 'mixins';
+@import 'fonts';
+@import 'layout';
 @import 'header';
 
-body {
-  font: 100% Helvetica, sans-serif;
-  background-color: #efefef;
-}
+
+$color-blue-master: #4788FF;
+$color-blue-light: #93B9FF;
+$color-blue-mid: #386CCC;
+$color-blue-grey: #4A5D7F
