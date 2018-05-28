@@ -4,35 +4,47 @@ module.exports = function(grunt) {
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      tasks: ['watch:js','watch:sass']
+    },
     jshint: {
       files: ['Gruntfile.js', 'src/js/*.js'],
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      js: {
+        files: ['<%= jshint.files %>'],
+        tasks: ['jshint']
+      },
+      sass: {
+        files: ['src/sass/*.scss'],
+        tasks: ['sass']
+      }
     },
     browserSync: {
       bsFiles: {
-          src : ['src/css/*.css', 'src/index.html']
+          src : ['src/css/main.css', 'src/index.html']
       },
       options: {
+        watchTask: true,
         server: {
             baseDir: "src"
         }
       }
     },
-  sass: {
-        options: {
-            sourceMap: true
-        },
-        dist: {
-            files: {
-                'src/css/main.css': 'src/sass/base.scss'
-            }
+    sass: {
+      options: {
+          sourceMap: true
+      },
+      dist: {
+        files: {
+          'src/css/main.css': 'src/sass/main.scss'
         }
+      }
     }
   });
 
-  grunt.registerTask('default', ['jshint','sass:dist','browserSync']);
-
+  grunt.registerTask('default', ['jshint','sass','browserSync','concurrent']);
 };
