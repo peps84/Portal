@@ -1,11 +1,17 @@
+$color-black-master: #000000;
+$color-blue-master: #4788FF;
+$color-blue-light: #93B9FF;
+$color-blue-mid: #386CCC;
+$color-blue-grey: #4A5D7F;
+$color-cyan-light: #47B9E8;
+
+$site-background: $color-black-master;
+
+
+
+
 @import 'reset';
 @import 'mixins';
 @import 'fonts';
 @import 'layout';
 @import 'header';
-
-
-$color-blue-master: #4788FF;
-$color-blue-light: #93B9FF;
-$color-blue-mid: #386CCC;
-$color-blue-grey: #4A5D7F
