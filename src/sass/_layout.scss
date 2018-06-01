@@ -7,6 +7,7 @@ body{
 #about{
   grid-area: about;
   div{
+    margin:auto;
     grid-area: aboutDescription;
   }
   img{
@@ -65,9 +66,12 @@ header{
   section{
     border: solid $color-blue-master;
     border-width: 1px 0 0 0;
+    padding-bottom: 0.5em;
+    &:first-child{
+      border-width: 0;
+    }
     &:last-child{
       border-width: 1px 0;
-      padding-bottom: 0.5em;
     }
     p{
       
